@@ -1,6 +1,4 @@
 #!/bin/bash
-logs="/etc/httpd/conf/httpd.conf"
-while IFS= read -r line
-do
-  echo "$line"
-done < "$logs"
+
+#Top 10 IP Addresses
+awk '{ print $1}' /etc/httpd/conf/httpd.conf | sort | uniq -c | sort -nr | head -n 10
